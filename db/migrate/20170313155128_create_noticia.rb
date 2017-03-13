@@ -5,7 +5,7 @@ class CreateNoticia < ActiveRecord::Migration[5.0]
       t.string :bajada
       t.string :cuerpo
       t.string :link
-      t.int :nComentarios
+      t.integer :nComentarios
 
       t.timestamps
     end
