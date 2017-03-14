@@ -16,14 +16,11 @@
 </p>
 
 <p>
-  <strong>Link:</strong>
-  <%= @noticium.link %>
-</p>
-
-<p>
   <strong>Ncomentarios:</strong>
   <%= @noticium.nComentarios %>
 </p>
+
+<%= link_to 'Write a comment', new_comentario_path %>
 
 <%= link_to 'Edit', edit_noticium_path(@noticium) %> |
 <%= link_to 'Back', noticia_path %>

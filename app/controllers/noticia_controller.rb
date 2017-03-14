@@ -1,6 +1,7 @@
 class NoticiaController < ApplicationController
   before_action :set_noticium, only: [:show, :edit, :update, :destroy]
 
+
   # GET /noticia
   # GET /noticia.json
   def index
@@ -69,6 +70,6 @@ class NoticiaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def noticium_params
-      params.require(:noticium).permit(:titulo, :bajada, :cuerpo, :link, :nComentarios)
+      params.require(:noticium).permit(:titulo, :bajada, :cuerpo, :nComentarios)
     end
 end
