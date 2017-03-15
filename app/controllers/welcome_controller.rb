@@ -9,6 +9,59 @@ class WelcomeController < ApplicationController
   end
 
   def userShow
+
+  end
+
+  def show
+    
+  end
+
+
+  # GET /noticia/new
+  def new
+    @noticium = Noticium.new
+  end
+
+  # GET /noticia/1/edit
+  def edit
+  end
+
+  # POST /noticia
+  # POST /noticia.json
+  def create
+    @noticium = Noticium.new(noticium_params)
+
+    respond_to do |format|
+      if @noticium.save
+        format.html { redirect_to @noticium, notice: 'Noticium was successfully created.' }
+        format.json { render :show, status: :created, location: @noticium }
+      else
+        format.html { render :new }
+        format.json { render json: @noticium.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
+# PATCH/PUT /noticia/1
+  # PATCH/PUT /noticia/1.json
+  def update
+    respond_to do |format|
+      if @noticium.update(noticium_params)
+        format.html { redirect_to @noticium, notice: 'Noticium was successfully updated.' }
+        format.json { render :userShow, status: :ok, location: @noticium }
+      else
+        format.html { render :edit }
+        format.json { render json: @noticium.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
+
+# Use callbacks to share common setup or constraints between actions.
+  def set_noticium
+    @noticium = Noticium.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
@@ -16,9 +69,6 @@ class WelcomeController < ApplicationController
     params.require(:noticium).permit(:titulo, :bajada, :cuerpo, :nComentarios)
   end
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_noticium
-    @noticium = Noticium.find(params[:id])
-  end
   
+
 end

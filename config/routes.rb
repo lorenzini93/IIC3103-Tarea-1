@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   resources :comentarios
   resources :noticia
+  resources :welcome
+
+  get 'welcome/userShow/:id' => 'welcome#userShow', :as => :userShow
+  get 'welcome/show/:id' => 'welcome#show', :as => :show
   get 'welcome/index'
-  get 'noticia/noticiasUsuario' => 'noticia#noticiasUsuario'
   get 'noticia/userShow'
   get 'welcome/userShow'
   root 'welcome#index'
